@@ -94,11 +94,11 @@ jobs:
     #- name: Set Output
     #  run: echo "{name}={value}" >> $GITHUB_OUTPUT     
 
-    - name: Save State
-      run: echo "abc" >> $GITHUB_STATE
+    #- name: Save State
+    #  run: echo "abc" >> $GITHUB_STATE
 
-    - name: Set Output
-      run: echo "xyz" >> $GITHUB_OUTPUT   
+    #- name: Set Output
+    #  run: echo "xyz" >> $GITHUB_OUTPUT   
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
