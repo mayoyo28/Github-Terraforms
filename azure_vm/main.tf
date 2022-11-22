@@ -17,21 +17,21 @@ resource "azurerm_resource_group" "arg" {
 }
 
 resource "azurerm_virtual_network" "avn" {
-  name                = "test-network"
+  name                = "demo-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
 }
 
 resource "azurerm_subnet" "as" {
-  name                 = "test-internal"
+  name                 = "demo-internal"
   resource_group_name  = azurerm_resource_group.arg.name
   virtual_network_name = azurerm_virtual_network.avn.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
 resource "azurerm_network_interface" "ani" {
-  name                = "test-nic"
+  name                = "demo-nic"
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
 
