@@ -11,46 +11,46 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "example" {
-  name     = "test-resource-group"
+resource "azurerm_resource_group" "arg" {
+  name     = "TerraformDemo"
   location = "East US"
 }
 
-resource "azurerm_virtual_network" "example" {
+resource "azurerm_virtual_network" "avn" {
   name                = "test-network"
   address_space       = ["10.0.0.0/16"]
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.arg.location
+  resource_group_name = azurerm_resource_group.arg.name
 }
 
-resource "azurerm_subnet" "example" {
+resource "azurerm_subnet" "as" {
   name                 = "test-internal"
-  resource_group_name  = azurerm_resource_group.example.name
-  virtual_network_name = azurerm_virtual_network.example.name
+  resource_group_name  = azurerm_resource_group.arg.name
+  virtual_network_name = azurerm_virtual_network.avn.name
   address_prefixes     = ["10.0.2.0/24"]
 }
 
-resource "azurerm_network_interface" "example" {
+resource "azurerm_network_interface" "ani" {
   name                = "test-nic"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+  location            = azurerm_resource_group.arg.location
+  resource_group_name = azurerm_resource_group.arg.name
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.example.id
+    subnet_id                     = azurerm_subnet.as.id
     private_ip_address_allocation = "Dynamic"
   }
 }
 
-resource "azurerm_windows_virtual_machine" "example" {
-  name                = "test-virtual-machine"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
+resource "azurerm_windows_virtual_machine" "awvm" {
+  name                = "demo-virtual-machine"
+  location            = azurerm_resource_group.arg.location
+  resource_group_name = azurerm_resource_group.arg.name
   size                = "Standard_F2"
   admin_username      = "adminuser"
   admin_password      = "P@$$w0rd1234!"
   network_interface_ids = [
-    azurerm_network_interface.example.id,
+    azurerm_network_interface.ani.id,
   ]
 
   os_disk {
