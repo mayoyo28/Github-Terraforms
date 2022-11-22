@@ -87,6 +87,13 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
 
+     # Set-Output command using Environment Variables
+    - name: Save State
+      run: echo "{name}={value}" >> $GITHUB_STATE
+
+    - name: Set Output
+      run: echo "{name}={value}" >> $GITHUB_OUTPUT     
+
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan -input=false
