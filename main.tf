@@ -11,6 +11,15 @@ provider "azurerm" {
   features {}
 }
 
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "TerraformDemo"
+    storage_account_name = "terraform2811"
+    container_name       = "tfstatefile"
+    key                  = "dev.terraform.tfstate"
+    }
+}
+
 resource "azurerm_resource_group" "arg" {
   name     = "TerraformDemo"
   location = "East US"
