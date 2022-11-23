@@ -51,7 +51,7 @@ resource "azurerm_network_interface" "ani" {
   }
 }
 
-resource "azurerm_virtual_machine" "awvm" {
+resource "azurerm_windows_virtual_machine" "awvm" {
   name                = "demo-machine"
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
@@ -66,12 +66,7 @@ resource "azurerm_virtual_machine" "awvm" {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
-  storage_os_disk {
-    name              = "myosdisk1"
-    caching           = "ReadWrite"
-    create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
-  }
+  
   source_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
