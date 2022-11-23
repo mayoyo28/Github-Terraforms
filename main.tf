@@ -21,7 +21,7 @@ terraform {
 }
 
 resource "azurerm_resource_group" "arg" {
-  name     = "TerraformDemo2"
+  name     = "TerraformDemo"
   location = "East US"
 }
 
