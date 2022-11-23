@@ -65,8 +65,8 @@ resource "azurerm_windows_virtual_machine" "awvm" {
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
   size                = "Standard_F2"
-  admin_username      = ${{AZURE_VM_USERNAME}}
-  admin_password      = ${{AZURE_VM_PASSWORD}}
+  admin_username      = %AZURE_VM_USERNAME%
+  admin_password      = %AZURE_VM_PASSWORD%
   network_interface_ids = [
     azurerm_network_interface.ani.id,
   ]
