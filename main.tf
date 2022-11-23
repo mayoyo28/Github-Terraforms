@@ -66,7 +66,12 @@ resource "azurerm_virtual_machine" "awvm" {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
-
+  storage_os_disk {
+    name              = "myosdisk1"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+  }
   source_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
