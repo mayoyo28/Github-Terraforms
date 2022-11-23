@@ -21,7 +21,7 @@ terraform {
 }
 
 resource "azurerm_resource_group" "arg" {
-  name     = "TerraformDemo2"
+  name     = "TerraformDemo"
   location = "East US"
 }
 
@@ -52,7 +52,7 @@ resource "azurerm_network_interface" "ani" {
 }
 
 resource "azurerm_virtual_machine" "awvm" {
-  name                = "demo-v-m"
+  name                = "demo-machine"
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
   size                = "Standard_F2"
