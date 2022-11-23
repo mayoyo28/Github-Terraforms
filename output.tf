@@ -8,6 +8,6 @@ output "nic_id" {
   value       = azurerm_network_interface.ani.id
 }
 
-output "vm_id" {
+output "awvm_id" {
   value = azurerm_virtual_machine.awvm.id
 }
