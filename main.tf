@@ -13,7 +13,7 @@ provider "azurerm" {
 
 terraform {
   backend "azurerm" {
-    resource_group_name  = "TerraformDemo2"
+    resource_group_name  = "TerraformDemo"
     storage_account_name = "terraform2811"
     container_name       = "tfstatefile"
     key                  = "dev.terraform.tfstate"
@@ -21,7 +21,7 @@ terraform {
 }
 
 resource "azurerm_resource_group" "arg" {
-  name     = "TerraformDemo"
+  name     = "TerraformDemo2"
   location = "East US"
 }
 
