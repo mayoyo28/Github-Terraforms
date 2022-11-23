@@ -9,5 +9,5 @@ output "nic_id" {
 }
 
 output "vm_id" {
-  value = azurerm_windows_v_mach.awvm.id
+  value = azurerm_virtual_machine.awvm.id
 }
