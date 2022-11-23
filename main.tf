@@ -73,4 +73,8 @@ resource "azurerm_windows_virtual_machine" "awvm" {
     sku       = "2016-Datacenter"
     version   = "latest"
   }
+
+  tags = {
+    environment = "stage_dev"
+  }
 }
