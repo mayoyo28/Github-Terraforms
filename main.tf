@@ -51,8 +51,8 @@ resource "azurerm_network_interface" "ani" {
   }
 }
 
-resource "azureazurerm_virtual_machine" "awvm" {
-  name                = "demo-virtual-machine"
+resource "azurerm_virtual_machine" "awvm" {
+  name                = "demo-v-m"
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
   size                = "Standard_F2"
