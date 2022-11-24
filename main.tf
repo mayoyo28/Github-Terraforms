@@ -16,12 +16,12 @@ terraform {
     resource_group_name = "TerraformDemo"
     storage_account_name = "terraform2811"
     container_name       = "tfstatefile"
-    key                  = "dev.terraform.tfstate"
+    key                  = "devs.terraform.tfstate"
     }
 }
 
 resource "azurerm_resource_group" "arg" {
-  name     = "TerraformDevRG"
+  name     = "TerraformDevsRG"
   location = "East US"
 }
 
