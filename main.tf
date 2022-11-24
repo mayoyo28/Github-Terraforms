@@ -47,6 +47,11 @@ resource "azurerm_network_security_group" "ansg" {
   }
 }
 
+resource "azurerm_network_interface_security_group_association" "anisga" {
+  network_interface_id      = azurerm_network_interface.ani.id
+  network_security_group_id = azurerm_network_security_group.ansg.id
+}
+
 resource "azurerm_virtual_network" "avn" {
   name                = "dev-network"
   address_space       = ["10.0.0.0/16"]
