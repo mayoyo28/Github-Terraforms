@@ -16,7 +16,7 @@ terraform {
     resource_group_name = "TerraformDemo"
     storage_account_name = "terraform2811"
     container_name       = "tfstatefile"
-    key                  = "stag.terraform.tfstate"
+    key                  = "sdev.terraform.tfstate"
     }
 }
 
@@ -26,7 +26,7 @@ resource "azurerm_resource_group" "arg" {
 }
 
 resource "azurerm_virtual_network" "avn" {
-  name                = "demo-network"
+  name                = "dev-network"
   address_space       = ["10.0.0.0/16"]
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
