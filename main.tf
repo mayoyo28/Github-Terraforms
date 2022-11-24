@@ -16,7 +16,7 @@ terraform {
     resource_group_name = "TerraformDemo"
     storage_account_name = "terraform2811"
     container_name       = "tfstatefile"
-    key                  = "sdev.terraform.tfstate"
+    key                  = "stag.terraform.tfstate"
     }
 }
 
