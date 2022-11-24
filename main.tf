@@ -60,7 +60,7 @@ resource "azurerm_virtual_network" "avn" {
 }
 
 resource "azurerm_subnet" "as" {
-  name                 = "demo-internal1"
+  name                 = "demo-internal2"
   resource_group_name  = azurerm_resource_group.arg.name
   virtual_network_name = azurerm_virtual_network.avn.name
   address_prefixes     = ["10.0.2.0/24"]
