@@ -16,12 +16,12 @@ terraform {
     resource_group_name = "TerraformDemo"
     storage_account_name = "terraform2811"
     container_name       = "tfstatefile"
-    key                  = "dev.terraform.tfstate"
+    key                  = "stage.terraform.tfstate"
     }
 }
 
 resource "azurerm_resource_group" "arg" {
-  name     = "TerraformDevRG"
+  name     = "TerraformStageRG"
   location = "East US"
 }
 
@@ -88,7 +88,7 @@ resource "azurerm_network_interface" "ani" {
 }
 
 resource "azurerm_windows_virtual_machine" "awvm" {
-  name                = "dev-machine"
+  name                = "stage-machine"
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
   size                = "Standard_F2"
