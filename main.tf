@@ -25,6 +25,28 @@ resource "azurerm_resource_group" "arg" {
   location = "East US"
 }
 
+resource "azurerm_network_security_group" "ansg" {
+  name                = "acceptanceTestSecurityGroup1"
+  location            = azurerm_resource_group.arg.location
+  resource_group_name = azurerm_resource_group.arg.name
+
+  security_rule {
+    name                       = "allowinbound"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "*"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+  tags = {
+    environment = "Production"
+  }
+}
+
 resource "azurerm_virtual_network" "avn" {
   name                = "dev-network"
   address_space       = ["10.0.0.0/16"]
