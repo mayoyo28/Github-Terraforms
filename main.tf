@@ -16,12 +16,12 @@ terraform {
     resource_group_name = "TerraformDemo"
     storage_account_name = "terraform2811"
     container_name       = "tfstatefile"
-    key                  = "demo.terraform.tfstate"
+    key                  = "test.terraform.tfstate"
     }
 }
 
 resource "azurerm_resource_group" "arg" {
-  name     = "TerraformDemoRG"
+  name     = "TerraformTestRG"
   location = "East US"
 }
 
@@ -60,7 +60,7 @@ resource "azurerm_virtual_network" "avn" {
 }
 
 resource "azurerm_subnet" "as" {
-  name                 = "demo-internal2"
+  name                 = "demo-internaltest"
   resource_group_name  = azurerm_resource_group.arg.name
   virtual_network_name = azurerm_virtual_network.avn.name
   address_prefixes     = ["10.0.2.0/24"]
@@ -88,7 +88,7 @@ resource "azurerm_network_interface" "ani" {
 }
 
 resource "azurerm_windows_virtual_machine" "awvm" {
-  name                = "demo-machine"
+  name                = "test-machine"
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
   size                = "Standard_F2"
