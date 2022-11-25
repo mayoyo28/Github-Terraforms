@@ -16,12 +16,12 @@ terraform {
     resource_group_name = "TerraformDemo"
     storage_account_name = "terraform2811"
     container_name       = "tfstatefile"
-    key                  = "test.terraform.tfstate"
+    key                  = "dev.terraform.tfstate"
     }
 }
 
 resource "azurerm_resource_group" "arg" {
-  name     = "TerraformTestRG"
+  name     = "TerraformDevRG"
   location = "East US"
 }
 
@@ -79,7 +79,7 @@ resource "azurerm_network_interface" "ani" {
   resource_group_name = azurerm_resource_group.arg.name
 
   ip_configuration {
-    name                          = "internal"
+    name                          = "demo-internal1"
     subnet_id                     = azurerm_subnet.as.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id = azurerm_public_ip.public_ip.id
@@ -88,7 +88,7 @@ resource "azurerm_network_interface" "ani" {
 }
 
 resource "azurerm_windows_virtual_machine" "awvm" {
-  name                = "test-machine"
+  name                = "dev-machine"
   location            = azurerm_resource_group.arg.location
   resource_group_name = azurerm_resource_group.arg.name
   size                = "Standard_F2"
