@@ -22,7 +22,7 @@ terraform {
 
 resource "azurerm_resource_group" "arg" {
   name     = "TerraformTestRG"
-  location = "East US 2"
+  location = "East US"
 }
 
 resource "azurerm_network_security_group" "ansg" {
